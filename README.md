@@ -6,9 +6,9 @@ import javax.swing.text.BadLocationException;
 public class ATMmachine {
     class ATM {
 
-        float Balance;
+        float balance=0.0f;
 
-          int PIN;
+          int PIN= 3423;
 
     public void checkpoint(){
         System.out.println("Enter Your pin :");
@@ -33,17 +33,17 @@ public class ATMmachine {
         
         Scanner sc=new Scanner(System.in);
         int opt=sc.nextInt();
-        if(opt==1){
+         if (opt==1) {
             checkBalance();
         }
-        else if(opt==2){
-            WthdrowMoney();
+        else if(opt==2) {
+            withdrowMoney();
         }
         else if(opt==3){
             depositeMoney();
         }
         else if(opt==4){
-            break:
+            return;
         }
         else{
             System.out.println("Plese Enter A Valide Choice");
@@ -51,7 +51,7 @@ public class ATMmachine {
 
     }
     public void checkBalance(){
-        System.out.println("Balance" + Balance);
+        System.out.println("Balance" + balance);
         menu();
     }
 
@@ -67,7 +67,22 @@ public class ATMmachine {
                 System.out.println("Money Withdrow Succesful");
 
             }
+            menu();
+        }
+        public void depositeMoney(){
+            System.out.println("Enter Amount To Deposite");
+            Scanner sc = new Scanner(System.in);
+            float amount=sc.nextFloat();
+            Balance=Balance+amount;
+            System.out.println("Money Deposite Succesful");
+            menu();
 
-
+        }
+    }
+     public class ATMmachine {
+        public static void main(String[] args) {
+            
+            ATM obj =new ATM();
+            obj.checkpin();
         }
     }
